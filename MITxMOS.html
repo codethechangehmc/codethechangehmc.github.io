@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>
-      Code the Change: Harvey Mudd College
-    </title>
-    <meta name="description" content="HMC Code the Change" />
-
-    <link rel="icon" type="image/x-icon" href="pictures/favicon-32x32.png">
+        Code the Change: Harvey Mudd College
+      </title>
+      <meta name="description" content="HMC Code the Change" />
+  
+      <link rel="icon" type="image/x-icon" href="pictures/favicon-32x32.png">
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
     <!--Replace with your tailwind.css once created-->
     <!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" /> -->
@@ -18,18 +18,76 @@
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
     <!-- Define your gradient here - use online tools to find a gradient matching your branding-->
     <style>
+      .plane-take-off {
+        font-family:"Pixelify Sans", sans-serif;
+      }
       .gradient {
         background: linear-gradient(90deg, #f6d365 0%, #fda085 100%);
       }
-      .button_contact_us{
-        background-image: linear-gradient(90deg, #f6d365 0%, #fda085 100%);
-        color: white;
-        padding: 14px 25px;
-        text-decoration: none;
-        display: inline-block;
-        border-radius: 120px;
-
+      .text-center {
+      text-align: center;
       }
+      .grid-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+      }
+      .image-grid {
+          display: grid;
+          gap: 1rem;
+          padding: 1rem;
+          max-width: 1400px;
+          margin: 0 auto;
+          
+          /* Default for mobile: 1 column */
+          grid-template-columns: repeat(1, 1fr);
+      }
+      .name {
+          margin-top: 10px;
+          font-weight: bold;
+          text-align: center;
+          color: #000000;
+      }
+      .role {
+          margin-top: 1px;
+          text-align: center;
+          color: #666;
+      }
+
+      /* Tablet: 2 columns */
+      @media screen and (min-width: 600px) {
+          .image-grid {
+              grid-template-columns: repeat(2, 1fr);
+          }
+      }
+
+      /* Desktop: 3 columns */
+      @media screen and (min-width: 900px) {
+          .image-grid {
+              grid-template-columns: repeat(3, 1fr);
+          }
+      }
+
+      /* Large Desktop: 4 columns */
+      @media screen and (min-width: 1200px) {
+          .image-grid {
+              grid-template-columns: repeat(4, 1fr);
+          }
+      }
+
+      .image-item {
+          width: 100%;
+          max-width: 400px;
+          height: auto;
+          object-fit: cover;
+          border-radius: 8px;
+          aspect-ratio: 1 / 1;
+          margin: 0 auto;
+          display: block;
+      }
+      
+
 
 
     </style>
@@ -43,7 +101,6 @@
             <svg width="500" height="70">
                 <image href="logo-ctc.png" width="200" height="200" y = "-60" />
               </svg>
-
           </a>
         </div>
         <div class="block lg:hidden pr-4">
@@ -61,11 +118,9 @@
               </li>
 
             <li class="mr-3">
-              <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="team.html">Team</a>
+              <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="#">Team</a>
             </li>
-            <!-- <li class="mr-3">
-              <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="#">TEMP</a>
-            </li> -->
+
           </ul>
 
           <a href="contact.html">
@@ -86,15 +141,20 @@
       <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
         <!--Left Col-->
         <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
-          <!-- <p class="uppercase tracking-loose w-full">What business are you?</p> -->
-          <h1 class="my-4 text-5xl font-bold leading-tight" style="color: rgb(0, 0, 0);">
-            Contact Us!
-          </h1>
+
+          <center>
+            <h1 class="my-4 text-5xl font-bold leading-tight" style="color: rgb(0, 0, 0);">
+              Code the Change x MIT and the Boston Museum of Science
+            </h1>
+          </center>
         </div>
 
-      
-    </div>
+        <div class="w-full md:w-3/5 py-6 text-center">
 
+ 
+        </div>
+      </div>
+    </div>
     <div class="relative -mt-12 lg:-mt-24">
       <svg viewBox="0 0 1428 174" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -114,74 +174,47 @@
         </g>
       </svg>
     </div>
+
+     
     <section class="bg-white py-8">
-      <div class="container max-w-5xl mx-auto m-8">
+      <div class="container mx-auto flex flex-wrap pt-4 pb-12">
         <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-          For Non-profits:
+          The Team
         </h2>
-        <div class="w-full mb-4">
-          <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
-        </div>
-        <div class="flex flex-wrap">
-          <div class="w-5/6 sm:w-1/2 p-6">
-            <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
-              Partnering With Us:
-            </h3>
-            <p class="text-gray-600 mb-8">
-              If you are a non-profit with an problem that requires a technological solution, we would be more than happy to help!
-              Please view this document below to began our partnership process, and we'll reach out to talk further!
 
-              <br />
-            </p>
-            <p class = "text-gray-600 mb-8">
-              If we seem like a good fit, please reach out to us at 
-               <a href = "mailto:code-the-change-leadership-l@g.hmc.edu " class="text-blue-600 underline"> code-the-change-leadership-l@g.hmc.edu  </a>
-            </p>
-            <a href = "https://docs.google.com/document/d/1kSdzI-PODtOdnKURvE7URnxKLC3WV73UaT5i_DS52Fk/edit?usp=sharing">
-                <button class= "button_contact_us" >
-                    Click Here!
-                </button>
-            </a>
-            
-          </div>
-          
-        </div>
+      </div>
+      <div>
+        <img src="pictures/MITxMOS_team.png" alt="MITxMOS team picture" 
+     style="display: block; margin: auto; width: 400px; height: auto; border-radius: 25px;">
+        <h3 class="text-xl font-medium text-gray-800 leading-relaxed text-center">
+          Left to right: Wendi Zheng (Team Lead), Zachary Wood, Jasmine Liu, Oliver Howe, Anika Sharma (Team Lead)
+        </h3>
+
+      </div>
+      <div class="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-lg space-y-4">
+        <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
+          About the Project
+        </h2>
+        <h3 class="text-xl font-medium text-gray-800 leading-relaxed">
+          This team was tasked with making an interactive exhibit for the Year of the Human at the Boston Museum of Science. 
+          The activities on the website aim to teach the general public about scientific ideas, and include a range of difficulties. 
+          This project will be displayed in December 2025 at the Boston Museum of Science. 
+        </h3>
+
+        <!-- <h3 class="text-xl font-medium text-gray-800 leading-relaxed">
+          Check out their work here (NOT INSERTED YET): 
+          <a href = "https://github.com/tixie2027/The-Nature-Conservancy" class="text-blue-600 underline"> The Nature Conservancy Github Repository </a>
+
+        </h3> -->
+      </div>     
 
 
-        <div class="container max-w-5xl mx-auto m-8">
-            <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-              For Students:
-            </h2>
-            <div class="w-full mb-4">
-              <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
-            </div>
-            <div class="flex flex-wrap">
-              <div class="w-5/6 sm:w-1/2 p-6">
-                <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
-                  Joining the Change:
-                </h3>
-                <p class="text-gray-600 mb-8">
-                  If you are a student and is interested in gaining experience by working delivering technology-based solutions for non-profits, you would be perfect for Code the Change!
-                  Please fill out this form below to apply.
-    
-                  <br />
-                  <br />
-                </p>
-                <a href = "https://forms.gle/VHJeWdFMfxHy7Vhn6">
-                    <button class= "button_contact_us" >
-                        Click Here!
-                    </button>
-                </a>
-    
-              </div>
-            </div>
-        
-
-        </div>
-      
     </section>
-    
-    <!-- Change the colour #f8fafc to match the previous section colour -->
+
+
+
+
+    <!--Footer-->
     <svg class="wave-top" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
           <g transform="translate(-1.000000, -14.000000)" fill-rule="nonzero">
@@ -216,9 +249,6 @@
       <footer class="bg-white">
         <!-- Footer can now be empty or removed if desired -->
       </footer>
-    <!-- jQuery if you need it
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  -->
     <script>
       var scrollpos = window.scrollY;
       var header = document.getElementById("header");
