@@ -15,87 +15,94 @@
     <!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" /> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400..700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     <!-- Define your gradient here - use online tools to find a gradient matching your branding-->
     <style>
-      
+      html {
+        scroll-behavior: smooth;
+      }
+      #what-we-do {
+        scroll-margin-top: 80px;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Quicksand', sans-serif;
+      }
 
       .plane-take-off {
-        font-family:"Pixelify Sans", sans-serif;
+        font-family:"Quicksand", sans-serif;
       }
       .gradient {
-        background: linear-gradient(90deg, #f6d365 0%, #fda085 100%);
-      }
-      
-
-      .carousel-container {
-        text-align: center;
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-        box-sizing: border-box;
+        background: #1B4D2A;
       }
 
+      .bg-white, .bg-gray-100 {
+        background-color: #F7F9F6 !important;
+      }
+      .text-gray-800 {
+        color: #153A20 !important;
+      }
+      .text-gray-700, .text-gray-600 {
+        color: #4A4A4A !important;
+      }
+      .text-blue-600 {
+        color: #2E7D34 !important;
+      }
 
-      .carousel {
-        width: 100%;
-        max-width: 800px;
-        min-width: 300px;
-        height: 500px;
-        margin: 0 auto;
-        overflow: hidden;
-        border-radius: 10px;
-        box-shadow: 0 0 15px rgba(0,0,0,0.2);
-        position: relative;
+      .project-card {
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .project-logo-wrap {
         display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         align-items: center;
-        background: #f0f0f0;
+        gap: 10px;
+        width: 100%;
       }
-
-      .carousel-track {
-        display: flex;
-        will-change: transform;
-        animation: scroll-left 60s linear infinite;
-      }
-
-
-      .carousel-track img {
-        width: 800px;
-        height: 500px;
-        object-fit: cover;
+      .project-logo {
         display: block;
-        flex-shrink: 0;
+        width: 220px;
+        height: 140px;
+        margin: 0 auto;
+        object-fit: contain;
+        object-position: center;
+      }
+      .project-card:hover {
+        transform: translateY(-6px) scale(1.02);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
       }
 
-      @keyframes scroll-left {
-        0% { 
-            transform: translateX(0); 
-        }
-        100% { 
-            transform: translateX(-50%); 
-        }
+      .hero-leaves {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
       }
-
-      .info {
-          color: white;
-          margin-top: 20px;
-          font-size: 14px;
-          opacity: 0.8;
+      .leaf-bunch {
+        position: absolute;
+        width: 200px;
+        height: 220px;
+        will-change: transform;
       }
-
-
+      .leaf {
+        position: absolute;
+      }
+      .leaf svg {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
     </style>
   </head>
-  <body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Source Sans Pro', sans-serif;">
+  <body class="leading-normal tracking-normal text-white gradient" style="font-family: 'Lora', serif;">
     <!--Nav-->
-    <nav id="header" class="fixed w-full z-30 top-0 text-white">
+    <nav id="header" class="fixed w-full z-30 top-0 text-white gradient">
       <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
         <div class="pl-4 flex items-center">
           <a class="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="index.html">
 
             <svg width="500" height="70">
-              <image href="pictures/logo-ctc.png" width="200" height="200" y = "-60" />
+              <image href="pictures/logo-ctc-white.png" width="200" height="200" y = "-60" />
             </svg>
             
             
@@ -103,31 +110,35 @@
           </a>
         </div>
         <div class="block lg:hidden pr-4">
-          <button id="nav-toggle" class="flex items-center p-1 text-pink-800 hover:text-gray-900 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+          <button id="nav-toggle" class="flex items-center p-1 text-white hover:text-gray-100 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
             <svg class="fill-current h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
               <title>Menu</title>
               <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
             </svg>
           </button>
         </div>
-        <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20" id="nav-content">
+        <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 gradient lg:bg-transparent text-white p-4 lg:p-0 z-20" id="nav-content">
           <ul class="list-reset lg:flex justify-end flex-1 items-center">
             <li class="mr-3">
-              <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="index.html">Home</a>
+              <a class="inline-block text-white no-underline hover:underline py-2 px-4" href="index.html">Home</a>
             </li>
 
             <li class="mr-3">
-              <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="team.html">Team</a>
+              <a class="inline-block text-white no-underline hover:underline py-2 px-4" href="team.html">Team</a>
+            </li>
+
+            <li class="mr-3">
+              <a class="inline-block text-white no-underline hover:underline py-2 px-4" href="past-projects.html">Past Projects</a>
             </li>
 
           </ul>
 
-          <a href="contact.html">
+          <a href="partner.html">
             <button
             id="navAction"
             class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
           >
-            Contact Us
+            Partner With Us
           </button>
           </a>
           
@@ -136,40 +147,50 @@
       <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
     </nav>
     <!--Hero-->
-    <div class="pt-24">
-      <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
-        <!--Left Col-->
-        <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
-          <h1 class="my-4 text-5xl font-bold leading-tight" style="color: rgb(0, 0, 0);">
-            Welcome to Code the Change at Harvey Mudd College!
-          </h1>
+    <div class="relative overflow-hidden min-h-screen flex flex-col justify-center items-center text-center px-3 pt-20">
+      <div class="hero-leaves" aria-hidden="true">
+        <div class="leaf-bunch" data-speed="0.18" data-spin="6" style="top:56%; left:2%;">
+          <div class="leaf" style="width:78px; left:0%; top:30%; transform: rotate(-15deg); z-index:1;"><svg viewBox="0 0 100 140"><path d="M50,4 C68,20 82,45 82,70 C82,95 68,118 50,136 C32,118 18,95 18,70 C18,45 32,20 50,4 Z" fill="#3F8A44"/><path d="M50,14 C48,45 52,95 50,128" stroke="#1B4D2A" stroke-width="2" fill="none" opacity="0.8"/><path d="M50,35 L34,48" stroke="#1B4D2A" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,35 L66,48" stroke="#1B4D2A" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,58 L30,74" stroke="#1B4D2A" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,58 L70,74" stroke="#1B4D2A" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,82 L34,98" stroke="#1B4D2A" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,82 L66,98" stroke="#1B4D2A" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,104 L40,116" stroke="#1B4D2A" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,104 L60,116" stroke="#1B4D2A" stroke-width="1.4" fill="none" opacity="0.7"/></svg></div>
+          <div class="leaf" style="width:62px; left:34%; top:8%; transform: rotate(20deg); z-index:2;"><svg viewBox="0 0 100 140"><path d="M50,4 C68,20 82,45 82,70 C82,95 68,118 50,136 C32,118 18,95 18,70 C18,45 32,20 50,4 Z" fill="#2E7D34"/><path d="M50,14 C48,45 52,95 50,128" stroke="#153A20" stroke-width="2" fill="none" opacity="0.8"/><path d="M50,35 L34,48" stroke="#153A20" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,35 L66,48" stroke="#153A20" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,58 L30,74" stroke="#153A20" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,58 L70,74" stroke="#153A20" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,82 L34,98" stroke="#153A20" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,82 L66,98" stroke="#153A20" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,104 L40,116" stroke="#153A20" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,104 L60,116" stroke="#153A20" stroke-width="1.4" fill="none" opacity="0.7"/></svg></div>
+          <div class="leaf" style="width:54px; left:14%; top:46%; transform: rotate(-32deg); z-index:3;"><svg viewBox="0 0 100 140"><path d="M50,4 C68,20 82,45 82,70 C82,95 68,118 50,136 C32,118 18,95 18,70 C18,45 32,20 50,4 Z" fill="#5CA968"/><path d="M50,14 C48,45 52,95 50,128" stroke="#2E7D34" stroke-width="2" fill="none" opacity="0.8"/><path d="M50,35 L34,48" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,35 L66,48" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,58 L30,74" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,58 L70,74" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,82 L34,98" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,82 L66,98" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,104 L40,116" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,104 L60,116" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/></svg></div>
         </div>
-
+        <div class="leaf-bunch" data-speed="0.28" data-spin="-10" style="top:6%; left:82%;">
+          <div class="leaf" style="width:70px; left:0%; top:12%; transform: rotate(28deg); z-index:1;"><svg viewBox="0 0 100 140"><path d="M50,4 C68,20 82,45 82,70 C82,95 68,118 50,136 C32,118 18,95 18,70 C18,45 32,20 50,4 Z" fill="#3F8A44"/><path d="M50,14 C48,45 52,95 50,128" stroke="#1B4D2A" stroke-width="2" fill="none" opacity="0.8"/><path d="M50,35 L34,48" stroke="#1B4D2A" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,35 L66,48" stroke="#1B4D2A" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,58 L30,74" stroke="#1B4D2A" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,58 L70,74" stroke="#1B4D2A" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,82 L34,98" stroke="#1B4D2A" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,82 L66,98" stroke="#1B4D2A" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,104 L40,116" stroke="#1B4D2A" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,104 L60,116" stroke="#1B4D2A" stroke-width="1.4" fill="none" opacity="0.7"/></svg></div>
+          <div class="leaf" style="width:50px; left:38%; top:28%; transform: rotate(-12deg); z-index:2;"><svg viewBox="0 0 100 140"><path d="M50,4 C68,20 82,45 82,70 C82,95 68,118 50,136 C32,118 18,95 18,70 C18,45 32,20 50,4 Z" fill="#5CA968"/><path d="M50,14 C48,45 52,95 50,128" stroke="#2E7D34" stroke-width="2" fill="none" opacity="0.8"/><path d="M50,35 L34,48" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,35 L66,48" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,58 L30,74" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,58 L70,74" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,82 L34,98" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,82 L66,98" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,104 L40,116" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,104 L60,116" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/></svg></div>
+        </div>
+        <div class="leaf-bunch" data-speed="0.22" data-spin="8" style="top:64%; left:84%;">
+          <div class="leaf" style="width:66px; left:6%; top:10%; transform: rotate(-22deg); z-index:1;"><svg viewBox="0 0 100 140"><path d="M50,4 C68,20 82,45 82,70 C82,95 68,118 50,136 C32,118 18,95 18,70 C18,45 32,20 50,4 Z" fill="#2E7D34"/><path d="M50,14 C48,45 52,95 50,128" stroke="#153A20" stroke-width="2" fill="none" opacity="0.8"/><path d="M50,35 L34,48" stroke="#153A20" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,35 L66,48" stroke="#153A20" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,58 L30,74" stroke="#153A20" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,58 L70,74" stroke="#153A20" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,82 L34,98" stroke="#153A20" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,82 L66,98" stroke="#153A20" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,104 L40,116" stroke="#153A20" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,104 L60,116" stroke="#153A20" stroke-width="1.4" fill="none" opacity="0.7"/></svg></div>
+          <div class="leaf" style="width:48px; left:44%; top:30%; transform: rotate(16deg); z-index:2;"><svg viewBox="0 0 100 140"><path d="M50,4 C68,20 82,45 82,70 C82,95 68,118 50,136 C32,118 18,95 18,70 C18,45 32,20 50,4 Z" fill="#5CA968"/><path d="M50,14 C48,45 52,95 50,128" stroke="#2E7D34" stroke-width="2" fill="none" opacity="0.8"/><path d="M50,35 L34,48" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,35 L66,48" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,58 L30,74" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,58 L70,74" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,82 L34,98" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,82 L66,98" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,104 L40,116" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,104 L60,116" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/></svg></div>
+        </div>
+        <div class="leaf-bunch" data-speed="0.14" data-spin="-6" style="top:14%; left:4%;">
+          <div class="leaf" style="width:46px; left:0%; top:10%; transform: rotate(8deg); z-index:1;"><svg viewBox="0 0 100 140"><path d="M50,4 C68,20 82,45 82,70 C82,95 68,118 50,136 C32,118 18,95 18,70 C18,45 32,20 50,4 Z" fill="#3F8A44"/><path d="M50,14 C48,45 52,95 50,128" stroke="#1B4D2A" stroke-width="2" fill="none" opacity="0.8"/><path d="M50,35 L34,48" stroke="#1B4D2A" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,35 L66,48" stroke="#1B4D2A" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,58 L30,74" stroke="#1B4D2A" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,58 L70,74" stroke="#1B4D2A" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,82 L34,98" stroke="#1B4D2A" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,82 L66,98" stroke="#1B4D2A" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,104 L40,116" stroke="#1B4D2A" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,104 L60,116" stroke="#1B4D2A" stroke-width="1.4" fill="none" opacity="0.7"/></svg></div>
+          <div class="leaf" style="width:34px; left:28%; top:24%; transform: rotate(-18deg); z-index:2;"><svg viewBox="0 0 100 140"><path d="M50,4 C68,20 82,45 82,70 C82,95 68,118 50,136 C32,118 18,95 18,70 C18,45 32,20 50,4 Z" fill="#2E7D34"/><path d="M50,14 C48,45 52,95 50,128" stroke="#153A20" stroke-width="2" fill="none" opacity="0.8"/><path d="M50,35 L34,48" stroke="#153A20" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,35 L66,48" stroke="#153A20" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,58 L30,74" stroke="#153A20" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,58 L70,74" stroke="#153A20" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,82 L34,98" stroke="#153A20" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,82 L66,98" stroke="#153A20" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,104 L40,116" stroke="#153A20" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,104 L60,116" stroke="#153A20" stroke-width="1.4" fill="none" opacity="0.7"/></svg></div>
+        </div>
+        <div class="leaf-bunch" data-speed="0.24" data-spin="9" style="top:36%; left:90%;">
+          <div class="leaf" style="width:42px; left:0%; top:6%; transform: rotate(12deg); z-index:1;"><svg viewBox="0 0 100 140"><path d="M50,4 C68,20 82,45 82,70 C82,95 68,118 50,136 C32,118 18,95 18,70 C18,45 32,20 50,4 Z" fill="#5CA968"/><path d="M50,14 C48,45 52,95 50,128" stroke="#2E7D34" stroke-width="2" fill="none" opacity="0.8"/><path d="M50,35 L34,48" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,35 L66,48" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,58 L30,74" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,58 L70,74" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,82 L34,98" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,82 L66,98" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,104 L40,116" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,104 L60,116" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/></svg></div>
+          <div class="leaf" style="width:30px; left:24%; top:20%; transform: rotate(-26deg); z-index:2;"><svg viewBox="0 0 100 140"><path d="M50,4 C68,20 82,45 82,70 C82,95 68,118 50,136 C32,118 18,95 18,70 C18,45 32,20 50,4 Z" fill="#3F8A44"/><path d="M50,14 C48,45 52,95 50,128" stroke="#1B4D2A" stroke-width="2" fill="none" opacity="0.8"/><path d="M50,35 L34,48" stroke="#1B4D2A" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,35 L66,48" stroke="#1B4D2A" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,58 L30,74" stroke="#1B4D2A" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,58 L70,74" stroke="#1B4D2A" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,82 L34,98" stroke="#1B4D2A" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,82 L66,98" stroke="#1B4D2A" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,104 L40,116" stroke="#1B4D2A" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,104 L60,116" stroke="#1B4D2A" stroke-width="1.4" fill="none" opacity="0.7"/></svg></div>
+        </div>
+        <div class="leaf-bunch" data-speed="0.16" data-spin="-7" style="top:82%; left:44%;">
+          <div class="leaf" style="width:50px; left:0%; top:8%; transform: rotate(-10deg); z-index:1;"><svg viewBox="0 0 100 140"><path d="M50,4 C68,20 82,45 82,70 C82,95 68,118 50,136 C32,118 18,95 18,70 C18,45 32,20 50,4 Z" fill="#2E7D34"/><path d="M50,14 C48,45 52,95 50,128" stroke="#153A20" stroke-width="2" fill="none" opacity="0.8"/><path d="M50,35 L34,48" stroke="#153A20" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,35 L66,48" stroke="#153A20" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,58 L30,74" stroke="#153A20" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,58 L70,74" stroke="#153A20" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,82 L34,98" stroke="#153A20" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,82 L66,98" stroke="#153A20" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,104 L40,116" stroke="#153A20" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,104 L60,116" stroke="#153A20" stroke-width="1.4" fill="none" opacity="0.7"/></svg></div>
+          <div class="leaf" style="width:36px; left:26%; top:22%; transform: rotate(24deg); z-index:2;"><svg viewBox="0 0 100 140"><path d="M50,4 C68,20 82,45 82,70 C82,95 68,118 50,136 C32,118 18,95 18,70 C18,45 32,20 50,4 Z" fill="#5CA968"/><path d="M50,14 C48,45 52,95 50,128" stroke="#2E7D34" stroke-width="2" fill="none" opacity="0.8"/><path d="M50,35 L34,48" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,35 L66,48" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,58 L30,74" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,58 L70,74" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,82 L34,98" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,82 L66,98" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,104 L40,116" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/><path d="M50,104 L60,116" stroke="#2E7D34" stroke-width="1.4" fill="none" opacity="0.7"/></svg></div>
+        </div>
       </div>
+      <h1 class="relative my-4 text-6xl font-bold leading-tight text-white">
+        We are Code the Change
+      </h1>
+      <p class="relative text-2xl leading-normal mb-6 text-white">
+        A group of students using technology for social impact.
+      </p>
+      <a class="relative" href="#what-we-do">
+        <button class="mx-auto hover:underline bg-white text-gray-800 font-bold rounded-full my-2 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+          What We Do
+        </button>
+      </a>
     </div>
-    <div class="relative -mt-12 lg:-mt-24">
-      <svg viewBox="0 0 1428 174" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-          <g transform="translate(-2.000000, 44.000000)" fill="#FFFFFF" fill-rule="nonzero">
-            <path d="M0,0 C90.7283404,0.927527913 147.912752,27.187927 291.910178,59.9119003 C387.908462,81.7278826 543.605069,89.334785 759,82.7326078 C469.336065,156.254352 216.336065,153.6679 0,74.9732496" opacity="0.100000001"></path>
-            <path
-              d="M100,104.708498 C277.413333,72.2345949 426.147877,52.5246657 546.203633,45.5787101 C666.259389,38.6327546 810.524845,41.7979068 979,55.0741668 C931.069965,56.122511 810.303266,74.8455141 616.699903,111.243176 C423.096539,147.640838 250.863238,145.462612 100,104.708498 Z"
-              opacity="0.100000001"
-            ></path>
-            <path d="M1046,51.6521276 C1130.83045,29.328812 1279.08318,17.607883 1439,40.1656806 L1439,120 C1271.17211,77.9435312 1140.17211,55.1609071 1046,51.6521276 Z" id="Path-4" opacity="0.200000003"></path>
-          </g>
-          <g transform="translate(-4.000000, 76.000000)" fill="#FFFFFF" fill-rule="nonzero">
-            <path
-              d="M0.457,34.035 C57.086,53.198 98.208,65.809 123.822,71.865 C181.454,85.495 234.295,90.29 272.033,93.459 C311.355,96.759 396.635,95.801 461.025,91.663 C486.76,90.01 518.727,86.372 556.926,80.752 C595.747,74.596 622.372,70.008 636.799,66.991 C663.913,61.324 712.501,49.503 727.605,46.128 C780.47,34.317 818.839,22.532 856.324,15.904 C922.689,4.169 955.676,2.522 1011.185,0.432 C1060.705,1.477 1097.39,3.129 1121.236,5.387 C1161.703,9.219 1208.621,17.821 1235.4,22.304 C1285.855,30.748 1354.351,47.432 1440.886,72.354 L1441.191,104.352 L1.121,104.031 L0.457,34.035 Z"
-            ></path>
-          </g>
-        </g>
-      </svg>
-    </div>
-    <section class="bg-white py-8">
+    <section id="what-we-do" class="bg-white py-8">
       <div class="container max-w-5xl mx-auto m-8">
         <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-          Who We Are
+          What is Code the Change
         </h2>
         <div class="w-full mb-4">
           <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
@@ -180,21 +201,26 @@
               About Us
             </h3>
             <p class="text-gray-600 mb-8">
-              We are the Code the Change Chapter at Harvey Mudd College, a STEM-focused liberal arts college located in Claremont, California. We are a student club looking to partner with non-profits to provide free technological solutions. 
-              Our projects are led and built by Harvey Mudd students. Through these projects, non-profits can receive some extra support and students can gain valuable real-world experience.
-
+              We are the Code the Change Chapter at Harvey Mudd College, a STEM-focused liberal arts college located in Claremont, California. We pair student developers with non-profits who need technological solutions but don't have the time, budget, or in-house engineering team to build them.
+              Over a semester or summer, our student teams design and build tools — from computer vision models to data pipelines to full web apps — tailored to each partner's needs, at no cost to them.
+              Non-profits get real software they can use, and students get to apply what they're learning to problems that matter.
             </p>
+            <a href="partner.html">
+              <button class="hover:underline gradient text-white font-bold rounded-full mt-2 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                Partner With Us
+              </button>
+            </a>
           </div>
           <div >
-            <img  src="pictures/CTC_Leadership.png" alt="CTC Leadership Pic" width = "500px" style="height:auto; float: right;"  border-radius: 25px;>
+            <img  src="pictures/CTC_Leadership.png" alt="CTC Leadership Pic" width = "500px" style="height:auto; float: right; margin-top: 40px;"  border-radius: 25px;>
 
           </div>
-          
+
 
         </div>
-    </section> 
+    </section>
 
-    <section class="bg-white py-8">
+    <section class="bg-white py-8 min-h-screen flex flex-col justify-center">
       <div class="container mx-auto flex flex-wrap pt-4 pb-12">
         <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
           Current Projects
@@ -204,19 +230,19 @@
         </div>
         <!-- Project 4: Red Cross -->
         <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
+          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow project-card">
             <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-              <div class="w-full font-bold text-xl text-gray-800 px-6 mx-auto text-center">
+              <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
                 <br>
                 American Red Cross International Service Department
               </div>
-              <p class="text-gray-800 text-base px-6 mb-5">
+              <p class="w-full text-gray-800 text-base px-6 mb-5">
                 <br>
-                We're building a computer vision model to help diaster relief volunteers more quickly identify vulnerable buildings. 
+                We're building a computer vision pipeline to classify over 300,000 street-level images provided by the NGO across regions in Indonesia, identifying buildings and vulnerabilities, and fine-tuning the model through uncertainty-guided adaptation and benchmarking.
                 <br>
                 <br>
-                <div style="display: flex; justify-content: center; gap: 10px;">
-                  <img src="pictures/Red Cross.jpg" width="70%" alt="Red Cross Logo">
+                <div class="project-logo-wrap">
+                  <img src="pictures/Red Cross.png" class="project-logo" alt="Red Cross Logo">
                 </div>
               </p>
             </a>
@@ -234,18 +260,18 @@
         
         <!-- Project 1: California Botanic Garden -->
         <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink border-none">
-          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow border-none">
+          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow border-none project-card">
             <a href="#" class="flex flex-wrap no-underline hover:no-underline">
               <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
                 <br>
                 California Botanic Garden (CalBG)
               </div>
-              <p class="text-gray-800 text-base px-6 mb-5">
+              <p class="w-full text-gray-800 text-base px-6 mb-5">
                 <br>
-                For CalBG, we're creating an interactive map of the garden grounds, making it easier for researchers and visitors to locate plants quickly.
+                For CalBG, we're creating an interactive map of the garden grounds, letting park-goers view information about each plant they encounter through a more personalized, intuitive experience.
                 <br>
-                <div style="display: grid; justify-items: center; gap: 10px;">
-                    <img src="pictures/CalBG.png" width="50%" alt="CalBG Logo">
+                <div class="project-logo-wrap">
+                    <img src="pictures/CalBG.png" class="project-logo" alt="CalBG Logo">
                 </div>
               </p>
             </a>
@@ -263,18 +289,18 @@
         
         <!-- Project 2: Alliance Bioversity-CIAT -->
         <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
+          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow project-card">
             <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-              <div class="w-full font-bold text-xl text-gray-800 px-6 mx-auto text-center">
+              <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
                 <br>
                 Alliance Bioversity-CIAT
               </div>
-              <p class="text-gray-800 text-base px-6 mb-5">
+              <p class="w-full text-gray-800 text-base px-6 mb-5">
                 <br>
-                Using Retrieval Augmented Generation (RAG), we're creating an AI workflow to automate livestock data extraction from research papers. 
+                We're building a Retrieval Augmented Generation (RAG) pipeline to automate classification and verification of animal feed and crop yield research syntheses from the NGO's large-scale dataset, working closely with their team to develop a robust workflow.
 
-                <div style="display: flex; justify-content: center; gap: 10px;">
-                  <img src="pictures/Alliance_Bioversity.jpg" width="70%" alt="Alliance Bioversity Logo">
+                <div class="project-logo-wrap">
+                  <img src="pictures/Alliance_Bioversity.png" class="project-logo" alt="Alliance Bioversity Logo">
                 </div>
               </p>
             </a>
@@ -292,18 +318,18 @@
         
         <!-- Project 3: Children’s Foundation of America -->
         <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
+          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow project-card">
             <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-              <div class="w-full font-bold text-xl text-gray-800 px-6 mx-auto text-center">
+              <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
                 <br>
                 Children’s Foundation of America 
               </div>
-              <p class="text-gray-800 text-base px-6 mb-5">
+              <p class="w-full text-gray-800 text-base px-6 mb-5">
                 <br>
                 We’re developing an online portal to help the Foundation track applications and manage documents for its scholarship program. 
                 <br>
-                <div style="display: flex; justify-content: center; gap: 10px;">
-                  <img src="pictures/Children's Foundation.avif" width="70%" alt="Children's Foundation Logo">
+                <div class="project-logo-wrap">
+                  <img src="pictures/Children's Foundation.png" class="project-logo" alt="Children's Foundation Logo">
                 </div>
               </p>
             </a>
@@ -322,21 +348,21 @@
         
         <!-- Project 5: Dr. Erikson Oregon State -->
         <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
+          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow project-card">
             <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-              <div class="w-full font-bold text-xl text-gray-800 px-6 mx-auto text-center">
+              <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
                 <br>
                 Dr. Brian Erickson, Postdoc @ Oregon State University
               </div>
-              <div class="text-gray-800 text-base px-6 mb-5 text-center">
+              <p class="w-full text-gray-800 text-base px-6 mb-5">
                 <br>
-                Using Natural Language Processing to better understand public comments about environmental agencies. 
+                Using Natural Language Processing to better understand public comments about environmental agencies.
                 <br>
                 <br>
-                <div style="display: flex; justify-content: center; gap: 10px;">
-                  <img src="pictures/OSU.webp" width="50%" alt="OSU Logo">
+                <div class="project-logo-wrap">
+                  <img src="pictures/OSU.png" class="project-logo" alt="OSU Logo">
                 </div>
-              </div>
+              </p>
             </a>
           </div>
           <!-- <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
@@ -353,224 +379,22 @@
       </div>
     </section>
 
-  <section class="bg-white py-8 ">
-      <div class="container mx-auto flex flex-wrap pt-4 pb-12">
-        <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-          Past Projects
-        </h2>
-        <div class="w-full mb-4 border-none">
-          <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
-        </div>
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink border-none">
-          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow border-none">
-            <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-
-              <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
-                <br>
-                MIT Jameel Clinic & Boston Museum of Science
-                
-              
-              </div>
-
-              <p class="text-gray-800 text-base px-6 mb-5">
-                <br>
-                With MIT students, we're creating a capture-the-flag challenge game for the Boston Museum of Science to encourage museum-goers to learn about clinical AI and drug discovery. 
-                <br>
-
-                <div style="display: grid; justify-items: center; gap: 20px;">
-                    <img src="pictures/MIT_logo.png" width="40%" alt="MIT Logo">
-                    <br>
-                    <img src="pictures/Boston_MOS.png" width="300" alt="MOS Logo">
-                </div>
-
-                
-              </p>
-            </a>
-          </div>
-
-
-
-           <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-            <a href = "MITxMOS.html">
-              <div class="flex items-center justify-center">
-              <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                Learn More
-              </button>
-            </div>
-            </a>
-          </div>
-        </div>
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-            <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-              <div class="w-full font-bold text-xl text-gray-800 px-6 mx-auto text-center">
-                <br>
-                United Nation Refugee Agency
-              </div>
-              <p class="text-gray-800 text-base px-6 mb-5">
-                <br>
-                Our first project with UNHCR is developing a machine learning tool to help the United Nations analyze geographical data about refugee camps.
-                <br>
-                <br>
-                Our second project is building a web app to help researchers visualize and connect data from two separate datasets. 
-                <br>
-                <div style="display: flex; justify-content: center; gap: 10px;">>
-                  <img src="pictures/USA_for_UNHCR.png" width="50%" alt="UNHCR Logo" >
-                </div>
-              </p>
-            </a>
-          </div>
-           <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-            <a href = "UNHCR.html">
-              <div class="flex items-center justify-center">
-              <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                Learn More
-              </button>
-            </div>
-            </a>
-          </div>
-        </div>
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-            <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-              <div class="w-full font-bold text-xl text-gray-800 px-6 mx-auto text-center">
-                <br>
-                The Nature Conservancy
-              </div>
-              <p class="text-gray-800 text-base px-6 mb-5">
-                <br>
-                For The Natural Conservancy, we're working to transfer research papers in a machine-readable format. 
-                We're also building a relevance prediction algorithm and a large language model for agroforestry research
-                papers.
-                <br>
-                <div style="display: flex; justify-content: center; gap: 10px;">>
-                  <img src="pictures/Nature Conservancy Logo.webp" width="70%" alt="UNHCR Logo" >
-                </div>
-              </p>
-            </a>
-          </div>
-          <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-            <a href = "TNC.html">
-              <div class="flex items-center justify-center">
-              <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                Learn More
-              </button>
-            </div>
-            </a>
-          </div>
-        </div>
-        </div>
-        </section>
-      </section>
-  
-
-    <section class="bg-white py-8 ">
-    <div class="w-full mb-8 px-4">
-        <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-            Client Testimonials
-        </h2>
-        <div class="w-full mb-8 px-4">
-            <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
-        </div>
-        
-        <div class="flex justify-center">
-            <!-- Testimonial 1 -->
-            <div class="w-full max-w-4xl mb-8 ">
-                <div class="testimonial-card bg-white rounded-lg shadow-lg p-12 text-center">
-                    <div class="flex flex-col items-center mb-6">
-                        <div class="w-20 h-20 bg-gradient-to-r from-purple-400 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-2xl mb-4">
-                          C
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-800 text-underline">
-                              <u>
-                                <a href="https://www.pomona.edu/directory/people/charlotte-chang">Charlotte Chang</a>
-                              </u>
-                              
-                            </h4>
-                            <p class="text-gray-600 text-sm">Assistant Professor of Biology and Environmental Analysis at Pomona College, 
-                              <br>
-                              Advisor for The Nature Conservancy Project</p>
-                        </div>
-                    </div>
-
-                    <p class = "text-gray-700 italic leading-relaxed text-lg max-w-3xl mx-auto font-bold">
-                      Over the course of just 12 weeks, the spring team conducted helpful and sophisticated initial analyses of an agroforestry dataset totaling tens of thousands of observations on carbon sequestration from thousands of scientific studies, led by Dr. Susan Cook-Patton of The Nature Conservancy (TNC). 
-                      The summer team created user-friendly software with helpful tutorials over just 8 weeks which our partners at TNC, CGIAR, Smithsonian Institute, and other organizations will be taking forward to 1) accelerate the laborious process of filtering scientific studies for carbon estimates, and 2) augment scarce and highly valuable expert labor in compiling much-needed carbon and agricultural management estimates.
-
-                      
-                    </p>
-                </div>
-            </div>
-          </div>
-        </div>
-  </section>
-
-
-
-    
-
-        <section class="bg-white py-8 ">
-        <div class="container mx-auto flex flex-wrap pt-4 pb-12">
-        <div class="container mx-auto flex flex-wrap pt-4 pb-12">
-          <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-            Club Event Pictures!
-          </h2>
-          <div class="w-full mb-4 border-none">
-            <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
-          </div>
-          <div class="carousel-container">
-            <h2>Seamless Image Carousel</h1>
-            
-            <div class="carousel">
-                <div class="carousel-track">
-                    <!-- Original set of images -->
-                    <img src="pictures/ctc1.jpg" alt="Image 1">
-                    <img src="pictures/ctc2.jpg" alt="Image 2">
-                    <img src="pictures/ctc3.jpg" alt="Image 3">
-                    <img src="pictures/ctc4.jpg" alt="Image 4">
-                    <img src="pictures/ctc5.jpg" alt="Image 5">
-                    <img src="pictures/ctc6.jpg" alt="Image 6">
-                    <img src="pictures/ctc7.jpg" alt="Image 7">
-                    <img src="pictures/ctc9.jpg" alt="Image 9">
-                    
-                    <!-- Duplicate set for seamless loop -->
-                    <img src="pictures/ctc1.jpg" alt="Image 1">
-                    <img src="pictures/ctc2.jpg" alt="Image 2">
-                    <img src="pictures/ctc3.jpg" alt="Image 3">
-                    <img src="pictures/ctc4.jpg" alt="Image 4">
-                    <img src="pictures/ctc5.jpg" alt="Image 5">
-                    <img src="pictures/ctc6.jpg" alt="Image 6">
-                    <img src="pictures/ctc7.jpg" alt="Image 7">
-                    <img src="pictures/ctc9.jpg" alt="Image 9">
-                </div>
-            </div>
-            
-            <div class="info">
-                Hover to pause • Seamless infinite loop
-            </div>
-          </div>
-        </div>
-    </div>
-    </section>
-
-
     <!-- Change the colour #f8fafc to match the previous section colour -->
   <svg class="wave-top" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <defs>
       <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" style="stop-color:#f6d365;stop-opacity:1" />
-          <stop offset="100%" style="stop-color:#fda085;stop-opacity:1" />
+          <stop offset="0%" style="stop-color:#5CA968;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#2E7D34;stop-opacity:1" />
       </linearGradient>
   </defs>
     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
       <g transform="translate(-1.000000, -14.000000)" fill-rule="nonzero">
-        <g class="wave" fill="#FFFFFF">
+        <g class="wave" fill="#F7F9F6">
           <path
             d="M1440,84 C1383.555,64.3 1342.555,51.3 1317,45 C1259.5,30.824 1206.707,25.526 1169,22 C1129.711,18.326 1044.426,18.475 980,22 C954.25,23.409 922.25,26.742 884,32 C845.122,37.787 818.455,42.121 804,45 C776.833,50.41 728.136,61.77 713,65 C660.023,76.309 621.544,87.729 584,94 C517.525,105.104 484.525,106.438 429,108 C379.49,106.484 342.823,104.484 319,102 C278.571,97.783 231.737,88.736 205,84 C154.629,75.076 86.296,57.743 0,32 L0,0 L1440,0 L1440,84 Z"
           ></path>
         </g>
-        <g transform="translate(1.000000, 15.000000)" fill="#FFFFFF">
+        <g transform="translate(1.000000, 15.000000)" fill="#F7F9F6">
           <g transform="translate(719.500000, 68.500000) rotate(-180.000000) translate(-719.500000, -68.500000) ">
             <path d="M0,0 C90.7283404,0.927527913 147.912752,27.187927 291.910178,59.9119003 C387.908462,81.7278826 543.605069,89.334785 759,82.7326078 C469.336065,156.254352 216.336065,153.6679 0,74.9732496" opacity="0.100000001"></path>
             <path
@@ -582,8 +406,8 @@
         </g>
         
         <!-- New footer text and logo within the SVG -->
-        <g fill="#f8fafc" text-anchor="middle">
-          <text x="720" y="130" font-size="14" fill="black">
+        <g fill="#F7F9F6" text-anchor="middle">
+          <text x="720" y="130" font-size="14" fill="#9CA3AF">
             <tspan>© Code the Change Harvey Mudd College</tspan>
           </text>
           
@@ -604,47 +428,30 @@
     </footer>
 
     <script>
-      var scrollpos = window.scrollY;
       var header = document.getElementById("header");
-      var navcontent = document.getElementById("nav-content");
-      var navaction = document.getElementById("navAction");
-      var brandname = document.getElementById("brandname");
-      var toToggle = document.querySelectorAll(".toggleColour");
 
       document.addEventListener("scroll", function () {
-        /*Apply classes for slide in bar*/
-        scrollpos = window.scrollY;
-
-        if (scrollpos > 10) {
-          header.classList.add("bg-white");
-          navaction.classList.remove("bg-white");
-          navaction.classList.add("gradient");
-          navaction.classList.remove("text-gray-800");
-          navaction.classList.add("text-white");
-          //Use to switch toggleColour colours
-          for (var i = 0; i < toToggle.length; i++) {
-            toToggle[i].classList.add("text-gray-800");
-            toToggle[i].classList.remove("text-white");
-          }
+        /*Add a shadow once scrolled off the top; nav stays green throughout*/
+        if (window.scrollY > 10) {
           header.classList.add("shadow");
-          navcontent.classList.remove("bg-gray-100");
-          navcontent.classList.add("bg-white");
         } else {
-          header.classList.remove("bg-white");
-          navaction.classList.remove("gradient");
-          navaction.classList.add("bg-white");
-          navaction.classList.remove("text-white");
-          navaction.classList.add("text-gray-800");
-          //Use to switch toggleColour colours
-          for (var i = 0; i < toToggle.length; i++) {
-            toToggle[i].classList.add("text-white");
-            toToggle[i].classList.remove("text-gray-800");
-          }
-
           header.classList.remove("shadow");
-          navcontent.classList.remove("bg-white");
-          navcontent.classList.add("bg-gray-100");
         }
+      });
+    </script>
+    <script>
+      /*Nudge the hero leaves only in response to scrolling, not on their own*/
+      var leafBunches = document.querySelectorAll(".leaf-bunch");
+
+      document.addEventListener("scroll", function () {
+        var y = window.scrollY;
+        leafBunches.forEach(function (bunch) {
+          var speed = parseFloat(bunch.dataset.speed);
+          var spin = parseFloat(bunch.dataset.spin);
+          var offset = y * speed;
+          var rotation = (y / 100) * spin;
+          bunch.style.transform = "translateY(" + offset + "px) rotate(" + rotation + "deg)";
+        });
       });
     </script>
     <script>

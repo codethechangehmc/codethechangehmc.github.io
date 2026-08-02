@@ -8,7 +8,7 @@
         Code the Change: Harvey Mudd College
       </title>
       <meta name="description" content="HMC Code the Change" />
-  
+
       <link rel="icon" type="image/x-icon" href="pictures/favicon-32x32.png">
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
     <!--Replace with your tailwind.css once created-->
@@ -41,69 +41,30 @@
       .text-blue-600 {
         color: #2E7D34 !important;
       }
-      .grid-item {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-      }
-      .image-grid {
-          display: grid;
-          gap: 1rem;
-          padding: 1rem;
-          max-width: 1400px;
-          margin: 0 auto;
-          
-          /* Default for mobile: 1 column */
-          grid-template-columns: repeat(1, 1fr);
-      }
-      .name {
-          margin-top: 10px;
-          font-weight: bold;
-          text-align: center;
-          color: #153A20;
-      }
-      .role {
-          margin-top: 1px;
-          text-align: center;
-          color: #4A4A4A;
-      }
 
-      /* Tablet: 2 columns */
-      @media screen and (min-width: 600px) {
-          .image-grid {
-              grid-template-columns: repeat(2, 1fr);
-          }
+      .project-card {
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
       }
-
-      /* Desktop: 3 columns */
-      @media screen and (min-width: 900px) {
-          .image-grid {
-              grid-template-columns: repeat(3, 1fr);
-          }
+      .project-logo-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
       }
-
-      /* Large Desktop: 4 columns */
-      @media screen and (min-width: 1200px) {
-          .image-grid {
-              grid-template-columns: repeat(3, 1fr);
-          }
+      .project-logo {
+        display: block;
+        width: 220px;
+        height: 140px;
+        margin: 0 auto;
+        object-fit: contain;
+        object-position: center;
       }
-
-      .image-item {
-          width: 100%;
-          max-width: 400px;
-          height: auto;
-          object-fit: cover;
-          border-radius: 8px;
-          aspect-ratio: 1 / 1;
-          margin: 0 auto;
-          display: block;
+      .project-card:hover {
+        transform: translateY(-6px) scale(1.02);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
       }
-      
-
-
-
     </style>
   </head>
   <body class="leading-normal tracking-normal text-white" style="font-family: 'Lora', serif;">
@@ -132,11 +93,11 @@
               </li>
 
             <li class="mr-3">
-              <a class="inline-block text-white no-underline hover:underline py-2 px-4" href="#">Team</a>
+              <a class="inline-block text-white no-underline hover:underline py-2 px-4" href="team.html">Team</a>
             </li>
 
             <li class="mr-3">
-              <a class="inline-block text-white no-underline hover:underline py-2 px-4" href="past-projects.html">Past Projects</a>
+              <a class="inline-block text-white no-underline hover:underline py-2 px-4" href="#">Past Projects</a>
             </li>
           </ul>
 
@@ -148,81 +109,125 @@
             Partner With Us
           </button>
           </a>
-          
+
         </div>
       </div>
       <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
     </nav>
-    <section class="bg-white py-8 pt-24">
-      <div class="container mx-auto flex flex-wrap pt-4 pb-12">
-        <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-          Leadership
-        </h2>
+    <!--Hero-->
+    <div class="bg-white pt-24">
+      <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+        <!--Left Col-->
+        <div class="flex flex-col w-full justify-center items-center text-center">
 
-        <div class="image-grid">
-          <div class="grid-item">
-              <img class="image-item" src="pictures/Tian_headshot.jpeg" alt="Tian">
-              <div class="name">Tian Xie</div>
-          </div>
+          <h1 class="my-4 text-5xl font-bold leading-tight text-gray-800">
+            Past Projects
+          </h1>
 
-          <div class="grid-item">
-              <img class="image-item" src="pictures/Anika_headshot.jpeg" alt="Anika">
-              <div class="name">Anika Sharma</div>
-          </div>
-          <div class="grid-item">
-              <img class="image-item" src="pictures/Elsa_headshot.jpeg" alt="Elsa">
-              <div class="name">Elsa Li</div>
-          </div>
-
-          <div class="grid-item">
-              <img class="image-item" src="pictures/Amy_headshot.jpg" alt="Amy">
-              <div class="name">Amy Li</div>
-          </div>
-
-          <div class="grid-item">
-              <img class="image-item" src="pictures/Nikhita_headshot.png" alt="Nikhita">
-              <div class="name">Nikhita Bhatt</div>
-          </div>
-
-          <div class="grid-item">
-              <img class="image-item" src="pictures/Arushi_headshot.png" alt="Arushi">
-              <div class="name">Arushi Bhandari</div>
-          </div>
-
+        </div>
       </div>
+    </div>
+
+    <section class="bg-white py-8 ">
+      <div class="container mx-auto flex flex-wrap pt-4 pb-12">
+        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink border-none">
+          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow border-none project-card">
+            <a href="#" class="flex flex-wrap no-underline hover:no-underline">
+
+              <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
+                <br>
+                MIT Jameel Clinic & Boston Museum of Science
 
 
+              </div>
+
+              <p class="w-full text-gray-800 text-base px-6 mb-5">
+                <br>
+                With MIT students, we're creating a capture-the-flag challenge game for the Boston Museum of Science to encourage museum-goers to learn about clinical AI and drug discovery.
+                <br>
+
+                <div class="project-logo-wrap">
+                    <img src="pictures/MIT_logo.png" class="project-logo" alt="MIT Logo">
+                </div>
+
+
+              </p>
+            </a>
+          </div>
+
+
+
+           <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
+            <a href = "MITxMOS.html">
+              <div class="flex items-center justify-center">
+              <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                Learn More
+              </button>
+            </div>
+            </a>
+          </div>
+        </div>
+        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
+          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow project-card">
+            <a href="#" class="flex flex-wrap no-underline hover:no-underline">
+              <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
+                <br>
+                United Nation Refugee Agency
+              </div>
+              <p class="w-full text-gray-800 text-base px-6 mb-5">
+                <br>
+                Our first project with UNHCR is developing a machine learning tool to help the United Nations analyze geographical data about refugee camps.
+                <br>
+                <br>
+                Our second project is building a web app to help researchers visualize and connect data from two separate datasets.
+                <br>
+                <div class="project-logo-wrap">
+                  <img src="pictures/USA_for_UNHCR.png" class="project-logo" alt="UNHCR Logo">
+                </div>
+              </p>
+            </a>
+          </div>
+           <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
+            <a href = "UNHCR.html">
+              <div class="flex items-center justify-center">
+              <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                Learn More
+              </button>
+            </div>
+            </a>
+          </div>
+        </div>
+        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
+          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow project-card">
+            <a href="#" class="flex flex-wrap no-underline hover:no-underline">
+              <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
+                <br>
+                The Nature Conservancy
+              </div>
+              <p class="w-full text-gray-800 text-base px-6 mb-5">
+                <br>
+                We designed and benchmarked an advanced RAG pipeline to automate parameter extraction from 7,000+ agroforestry papers, accelerating previously manual meta-analysis workflows by integrating Hugging Face Transformers, ChromaDB, and LLMs for efficient retrieval.
+                <br>
+                <div class="project-logo-wrap">
+                  <img src="pictures/Nature Conservancy Logo.webp" class="project-logo" alt="The Nature Conservancy Logo">
+                </div>
+              </p>
+            </a>
+          </div>
+          <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
+            <a href = "TNC.html">
+              <div class="flex items-center justify-center">
+              <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                Learn More
+              </button>
+            </div>
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
 
-
-    <section class="bg-white py-8">
-      <div class="container mx-auto flex flex-wrap pt-4 pb-12">
-        <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-          Retired
-        </h2>
-        
-        <div class="image-grid">
-
-          <div class="grid-item">
-              <img class="image-item" src="pictures/Aly_headshot.PNG" alt="Aly">
-              <div class="name">Alyssa Sawyer</div>
-          </div>
-          <div class="grid-item">
-              <img class="image-item" src="pictures/Serena_headshot.jpeg" alt="Serena">
-              <div class="name">Serena Mao</div>
-          </div>
-          <div class="grid-item">
-              <img class="image-item" src="pictures/Marilyn_headshot.jpeg" alt="Marilyn">
-              <div class="name">Marilyn Ma</div>
-          </div>
-
-      </div>
-
-
-    </section>
-
-
-    <!--Footer-->
+    <!-- Change the colour #f8fafc to match the previous section colour -->
     <svg class="wave-top" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
           <g transform="translate(-1.000000, -14.000000)" fill-rule="nonzero">
@@ -241,18 +246,18 @@
                 <path d="M1046,51.6521276 C1130.83045,29.328812 1279.08318,17.607883 1439,40.1656806 L1439,120 C1271.17211,77.9435312 1140.17211,55.1609071 1046,51.6521276 Z" opacity="0.200000003"></path>
               </g>
             </g>
-            
+
             <!-- New footer text and logo within the SVG -->
             <g fill="#F7F9F6" text-anchor="middle">
               <text x="720" y="130" font-size="14" fill="#9CA3AF">
                 <tspan>© Code the Change Harvey Mudd College</tspan>
               </text>
-              
+
             </g>
           </g>
         </g>
       </svg>
-      
+
       <!--Footer-->
       <footer class="bg-white">
         <!-- Footer can now be empty or removed if desired -->
