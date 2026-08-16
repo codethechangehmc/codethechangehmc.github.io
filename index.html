@@ -72,6 +72,54 @@
         box-shadow: 0 15px 30px rgba(0,0,0,0.2);
       }
 
+      .carousel-viewport {
+        width: 100%;
+        max-width: 100vw;
+        overflow: hidden;
+        -webkit-mask-image: linear-gradient(to right, transparent 0, #000 5%, #000 95%, transparent 100%);
+        mask-image: linear-gradient(to right, transparent 0, #000 5%, #000 95%, transparent 100%);
+      }
+      .carousel-track {
+        display: flex;
+        width: max-content;
+        animation: carousel-scroll 70s linear infinite;
+      }
+      /* Only pause on hover for pointer devices; touch devices have no hover to get stuck on */
+      @media (hover: hover) {
+        .carousel-track:hover {
+          animation-play-state: paused;
+        }
+      }
+      .carousel-card {
+        flex: 0 0 auto;
+        width: min(320px, 78vw);
+        margin: 0 clamp(8px, 2.5vw, 14px);
+        display: flex;
+      }
+      .carousel-card .project-card {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+      @keyframes carousel-scroll {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .carousel-track {
+          animation: none;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+        .carousel-viewport {
+          overflow-x: auto;
+        }
+      }
+
       .hero-leaves {
         position: absolute;
         inset: 0;
@@ -221,161 +269,205 @@
     </section>
 
     <section class="bg-white py-8 min-h-screen flex flex-col justify-center">
-      <div class="container mx-auto flex flex-wrap pt-4 pb-12">
+      <div class="container mx-auto pt-4 pb-8">
         <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
           Current Projects
         </h2>
         <div class="w-full mb-4 border-none">
           <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
         </div>
-        <!-- Project 4: Red Cross -->
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow project-card">
-            <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-              <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
-                <br>
-                American Red Cross International Service Department
-              </div>
-              <p class="w-full text-gray-800 text-base px-6 mb-5">
-                <br>
-                We're building a computer vision pipeline to classify over 300,000 street-level images provided by the NGO across regions in Indonesia, identifying buildings and vulnerabilities, and fine-tuning the model through uncertainty-guided adaptation and benchmarking.
-                <br>
-                <br>
-                <div class="project-logo-wrap">
-                  <img src="pictures/Red Cross.png" class="project-logo" alt="Red Cross Logo">
-                </div>
-              </p>
-            </a>
-          </div>
-          <!-- <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-            <a href="climate.html">
-              <div class="flex items-center justify-center">
-                <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                  Learn More
-                </button>
-              </div>
-            </a>
-          </div> -->
-        </div>
-        
-        <!-- Project 1: California Botanic Garden -->
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink border-none">
-          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow border-none project-card">
-            <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-              <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
-                <br>
-                California Botanic Garden (CalBG)
-              </div>
-              <p class="w-full text-gray-800 text-base px-6 mb-5">
-                <br>
-                For CalBG, we're creating an interactive map of the garden grounds, letting park-goers view information about each plant they encounter through a more personalized, intuitive experience.
-                <br>
-                <div class="project-logo-wrap">
-                    <img src="pictures/CalBG.png" class="project-logo" alt="CalBG Logo">
-                </div>
-              </p>
-            </a>
-          </div>
-          <!-- <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-            <a href="MITxMOS.html">
-              <div class="flex items-center justify-center">
-                <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                  Learn More
-                </button>
-              </div>
-            </a>
-          </div> -->
-        </div>
-        
-        <!-- Project 2: Alliance Bioversity-CIAT -->
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow project-card">
-            <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-              <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
-                <br>
-                Alliance Bioversity-CIAT
-              </div>
-              <p class="w-full text-gray-800 text-base px-6 mb-5">
-                <br>
-                We're building a Retrieval Augmented Generation (RAG) pipeline to automate classification and verification of animal feed and crop yield research syntheses from the NGO's large-scale dataset, working closely with their team to develop a robust workflow.
+      </div>
 
-                <div class="project-logo-wrap">
-                  <img src="pictures/Alliance_Bioversity.png" class="project-logo" alt="Alliance Bioversity Logo">
+      <div class="carousel-viewport py-4">
+        <div class="carousel-track">
+          <!-- Set 1 -->
+          <div class="carousel-card">
+            <div class="bg-white rounded overflow-hidden shadow project-card">
+              <a href="#" class="flex flex-wrap no-underline hover:no-underline">
+                <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
+                  <br>
+                  American Red Cross International Service Department
                 </div>
-              </p>
-            </a>
+                <p class="w-full text-gray-800 text-base px-6 mb-5">
+                  <br>
+                  We're building a computer vision pipeline to classify over 300,000 street-level images provided by the NGO across regions in Indonesia, identifying buildings and vulnerabilities, and fine-tuning the model through uncertainty-guided adaptation and benchmarking.
+                  <br>
+                  <br>
+                  <div class="project-logo-wrap">
+                    <img src="pictures/Red Cross.png" class="project-logo" alt="Red Cross Logo">
+                  </div>
+                </p>
+              </a>
+            </div>
           </div>
-          <!-- <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-            <a href="UNHCR.html">
-              <div class="flex items-center justify-center">
-                <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                  Learn More
-                </button>
-              </div>
-            </a>
-          </div> -->
-        </div>
-        
-        <!-- Project 3: Children’s Foundation of America -->
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow project-card">
-            <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-              <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
-                <br>
-                Children’s Foundation of America 
-              </div>
-              <p class="w-full text-gray-800 text-base px-6 mb-5">
-                <br>
-                We’re developing an online portal to help the Foundation track applications and manage documents for its scholarship program. 
-                <br>
-                <div class="project-logo-wrap">
-                  <img src="pictures/Children's Foundation.png" class="project-logo" alt="Children's Foundation Logo">
+          <div class="carousel-card">
+            <div class="bg-white rounded overflow-hidden shadow project-card">
+              <a href="#" class="flex flex-wrap no-underline hover:no-underline">
+                <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
+                  <br>
+                  California Botanic Garden (CalBG)
                 </div>
-              </p>
-            </a>
+                <p class="w-full text-gray-800 text-base px-6 mb-5">
+                  <br>
+                  For CalBG, we're creating an interactive map of the garden grounds, letting park-goers view information about each plant they encounter through a more personalized, intuitive experience.
+                  <br>
+                  <div class="project-logo-wrap">
+                      <img src="pictures/CalBG.png" class="project-logo" alt="CalBG Logo">
+                  </div>
+                </p>
+              </a>
+            </div>
           </div>
-          <!-- <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-            <a href="TNC.html">
-              <div class="flex items-center justify-center">
-                <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                  Learn More
-                </button>
-              </div>
-            </a>
-          </div> -->
-        </div>
-        
-        
-        <!-- Project 5: Dr. Erikson Oregon State -->
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow project-card">
-            <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-              <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
-                <br>
-                Dr. Brian Erickson, Postdoc @ Oregon State University
-              </div>
-              <p class="w-full text-gray-800 text-base px-6 mb-5">
-                <br>
-                Using Natural Language Processing to better understand public comments about environmental agencies.
-                <br>
-                <br>
-                <div class="project-logo-wrap">
-                  <img src="pictures/OSU.png" class="project-logo" alt="OSU Logo">
+          <div class="carousel-card">
+            <div class="bg-white rounded overflow-hidden shadow project-card">
+              <a href="#" class="flex flex-wrap no-underline hover:no-underline">
+                <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
+                  <br>
+                  Alliance Bioversity-CIAT
                 </div>
-              </p>
-            </a>
+                <p class="w-full text-gray-800 text-base px-6 mb-5">
+                  <br>
+                  We're building a Retrieval Augmented Generation (RAG) pipeline to automate classification and verification of animal feed and crop yield research syntheses from the NGO's large-scale dataset, working closely with their team to develop a robust workflow.
+
+                  <div class="project-logo-wrap">
+                    <img src="pictures/Alliance_Bioversity.png" class="project-logo" alt="Alliance Bioversity Logo">
+                  </div>
+                </p>
+              </a>
+            </div>
           </div>
-          <!-- <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-            <a href="education.html">
-              <div class="flex items-center justify-center">
-                <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                  Learn More
-                </button>
-              </div>
-            </a>
-          </div> -->
+          <div class="carousel-card">
+            <div class="bg-white rounded overflow-hidden shadow project-card">
+              <a href="#" class="flex flex-wrap no-underline hover:no-underline">
+                <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
+                  <br>
+                  Children’s Foundation of America
+                </div>
+                <p class="w-full text-gray-800 text-base px-6 mb-5">
+                  <br>
+                  We’re developing an online portal to help the Foundation track applications and manage documents for its scholarship program.
+                  <br>
+                  <div class="project-logo-wrap">
+                    <img src="pictures/Children's Foundation.png" class="project-logo" alt="Children's Foundation Logo">
+                  </div>
+                </p>
+              </a>
+            </div>
+          </div>
+          <div class="carousel-card">
+            <div class="bg-white rounded overflow-hidden shadow project-card">
+              <a href="#" class="flex flex-wrap no-underline hover:no-underline">
+                <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
+                  <br>
+                  Dr. Brian Erickson, Postdoc @ Oregon State University
+                </div>
+                <p class="w-full text-gray-800 text-base px-6 mb-5">
+                  <br>
+                  Using Natural Language Processing to better understand public comments about environmental agencies.
+                  <br>
+                  <br>
+                  <div class="project-logo-wrap">
+                    <img src="pictures/OSU.png" class="project-logo" alt="OSU Logo">
+                  </div>
+                </p>
+              </a>
+            </div>
+          </div>
+
+          <!-- Set 2 (duplicate, for seamless looping) -->
+          <div class="carousel-card" aria-hidden="true">
+            <div class="bg-white rounded overflow-hidden shadow project-card">
+              <a href="#" tabindex="-1" class="flex flex-wrap no-underline hover:no-underline">
+                <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
+                  <br>
+                  American Red Cross International Service Department
+                </div>
+                <p class="w-full text-gray-800 text-base px-6 mb-5">
+                  <br>
+                  We're building a computer vision pipeline to classify over 300,000 street-level images provided by the NGO across regions in Indonesia, identifying buildings and vulnerabilities, and fine-tuning the model through uncertainty-guided adaptation and benchmarking.
+                  <br>
+                  <br>
+                  <div class="project-logo-wrap">
+                    <img src="pictures/Red Cross.png" class="project-logo" alt="" aria-hidden="true">
+                  </div>
+                </p>
+              </a>
+            </div>
+          </div>
+          <div class="carousel-card" aria-hidden="true">
+            <div class="bg-white rounded overflow-hidden shadow project-card">
+              <a href="#" tabindex="-1" class="flex flex-wrap no-underline hover:no-underline">
+                <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
+                  <br>
+                  California Botanic Garden (CalBG)
+                </div>
+                <p class="w-full text-gray-800 text-base px-6 mb-5">
+                  <br>
+                  For CalBG, we're creating an interactive map of the garden grounds, letting park-goers view information about each plant they encounter through a more personalized, intuitive experience.
+                  <br>
+                  <div class="project-logo-wrap">
+                      <img src="pictures/CalBG.png" class="project-logo" alt="" aria-hidden="true">
+                  </div>
+                </p>
+              </a>
+            </div>
+          </div>
+          <div class="carousel-card" aria-hidden="true">
+            <div class="bg-white rounded overflow-hidden shadow project-card">
+              <a href="#" tabindex="-1" class="flex flex-wrap no-underline hover:no-underline">
+                <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
+                  <br>
+                  Alliance Bioversity-CIAT
+                </div>
+                <p class="w-full text-gray-800 text-base px-6 mb-5">
+                  <br>
+                  We're building a Retrieval Augmented Generation (RAG) pipeline to automate classification and verification of animal feed and crop yield research syntheses from the NGO's large-scale dataset, working closely with their team to develop a robust workflow.
+
+                  <div class="project-logo-wrap">
+                    <img src="pictures/Alliance_Bioversity.png" class="project-logo" alt="" aria-hidden="true">
+                  </div>
+                </p>
+              </a>
+            </div>
+          </div>
+          <div class="carousel-card" aria-hidden="true">
+            <div class="bg-white rounded overflow-hidden shadow project-card">
+              <a href="#" tabindex="-1" class="flex flex-wrap no-underline hover:no-underline">
+                <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
+                  <br>
+                  Children’s Foundation of America
+                </div>
+                <p class="w-full text-gray-800 text-base px-6 mb-5">
+                  <br>
+                  We’re developing an online portal to help the Foundation track applications and manage documents for its scholarship program.
+                  <br>
+                  <div class="project-logo-wrap">
+                    <img src="pictures/Children's Foundation.png" class="project-logo" alt="" aria-hidden="true">
+                  </div>
+                </p>
+              </a>
+            </div>
+          </div>
+          <div class="carousel-card" aria-hidden="true">
+            <div class="bg-white rounded overflow-hidden shadow project-card">
+              <a href="#" tabindex="-1" class="flex flex-wrap no-underline hover:no-underline">
+                <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
+                  <br>
+                  Dr. Brian Erickson, Postdoc @ Oregon State University
+                </div>
+                <p class="w-full text-gray-800 text-base px-6 mb-5">
+                  <br>
+                  Using Natural Language Processing to better understand public comments about environmental agencies.
+                  <br>
+                  <br>
+                  <div class="project-logo-wrap">
+                    <img src="pictures/OSU.png" class="project-logo" alt="" aria-hidden="true">
+                  </div>
+                </p>
+              </a>
+            </div>
+          </div>
         </div>
-        
       </div>
     </section>
 

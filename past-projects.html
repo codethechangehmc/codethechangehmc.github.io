@@ -65,6 +65,54 @@
         transform: translateY(-6px) scale(1.02);
         box-shadow: 0 15px 30px rgba(0,0,0,0.2);
       }
+
+      .carousel-viewport {
+        width: 100%;
+        max-width: 100vw;
+        overflow: hidden;
+        -webkit-mask-image: linear-gradient(to right, transparent 0, #000 5%, #000 95%, transparent 100%);
+        mask-image: linear-gradient(to right, transparent 0, #000 5%, #000 95%, transparent 100%);
+      }
+      .carousel-track {
+        display: flex;
+        width: max-content;
+        animation: carousel-scroll 70s linear infinite;
+      }
+      /* Only pause on hover for pointer devices; touch devices have no hover to get stuck on */
+      @media (hover: hover) {
+        .carousel-track:hover {
+          animation-play-state: paused;
+        }
+      }
+      .carousel-card {
+        flex: 0 0 auto;
+        width: min(320px, 78vw);
+        margin: 0 clamp(8px, 2.5vw, 14px);
+        display: flex;
+      }
+      .carousel-card .project-card {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+      @keyframes carousel-scroll {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .carousel-track {
+          animation: none;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+        .carousel-viewport {
+          overflow-x: auto;
+        }
+      }
     </style>
   </head>
   <body class="leading-normal tracking-normal text-white" style="font-family: 'Lora', serif;">
@@ -128,100 +176,167 @@
       </div>
     </div>
 
-    <section class="bg-white py-8 ">
-      <div class="container mx-auto flex flex-wrap pt-4 pb-12">
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink border-none">
-          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow border-none project-card">
-            <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-
-              <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
-                <br>
-                MIT Jameel Clinic & Boston Museum of Science
-
-
-              </div>
-
-              <p class="w-full text-gray-800 text-base px-6 mb-5">
-                <br>
-                With MIT students, we're creating a capture-the-flag challenge game for the Boston Museum of Science to encourage museum-goers to learn about clinical AI and drug discovery.
-                <br>
-
-                <div class="project-logo-wrap">
-                    <img src="pictures/MIT_logo.png" class="project-logo" alt="MIT Logo">
+    <section class="bg-white py-8">
+      <div class="carousel-viewport py-4">
+        <div class="carousel-track">
+          <!-- Set 1 -->
+          <div class="carousel-card">
+            <div class="bg-white rounded overflow-hidden shadow project-card">
+              <a href="#" class="flex flex-wrap no-underline hover:no-underline">
+                <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
+                  <br>
+                  MIT Jameel Clinic & Boston Museum of Science
                 </div>
-
-
-              </p>
-            </a>
-          </div>
-
-
-
-           <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-            <a href = "MITxMOS.html">
-              <div class="flex items-center justify-center">
-              <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                Learn More
-              </button>
-            </div>
-            </a>
-          </div>
-        </div>
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow project-card">
-            <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-              <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
-                <br>
-                United Nation Refugee Agency
+                <p class="w-full text-gray-800 text-base px-6 mb-5">
+                  <br>
+                  With MIT students, we're creating a capture-the-flag challenge game for the Boston Museum of Science to encourage museum-goers to learn about clinical AI and drug discovery.
+                  <br>
+                  <div class="project-logo-wrap">
+                      <img src="pictures/MIT_logo.png" class="project-logo" alt="MIT Logo">
+                  </div>
+                </p>
+              </a>
+              <div class="mt-auto flex items-center justify-center p-6">
+                <a href="MITxMOS.html">
+                  <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                    Learn More
+                  </button>
+                </a>
               </div>
-              <p class="w-full text-gray-800 text-base px-6 mb-5">
-                <br>
-                Our first project with UNHCR is developing a machine learning tool to help the United Nations analyze geographical data about refugee camps.
-                <br>
-                <br>
-                Our second project is building a web app to help researchers visualize and connect data from two separate datasets.
-                <br>
-                <div class="project-logo-wrap">
-                  <img src="pictures/USA_for_UNHCR.png" class="project-logo" alt="UNHCR Logo">
-                </div>
-              </p>
-            </a>
-          </div>
-           <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-            <a href = "UNHCR.html">
-              <div class="flex items-center justify-center">
-              <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                Learn More
-              </button>
             </div>
-            </a>
           </div>
-        </div>
-        <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-          <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow project-card">
-            <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-              <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
-                <br>
-                The Nature Conservancy
+          <div class="carousel-card">
+            <div class="bg-white rounded overflow-hidden shadow project-card">
+              <a href="#" class="flex flex-wrap no-underline hover:no-underline">
+                <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
+                  <br>
+                  United Nation Refugee Agency
+                </div>
+                <p class="w-full text-gray-800 text-base px-6 mb-5">
+                  <br>
+                  Our first project with UNHCR is developing a machine learning tool to help the United Nations analyze geographical data about refugee camps.
+                  <br>
+                  <br>
+                  Our second project is building a web app to help researchers visualize and connect data from two separate datasets.
+                  <br>
+                  <div class="project-logo-wrap">
+                    <img src="pictures/USA_for_UNHCR.png" class="project-logo" alt="UNHCR Logo">
+                  </div>
+                </p>
+              </a>
+              <div class="mt-auto flex items-center justify-center p-6">
+                <a href="UNHCR.html">
+                  <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                    Learn More
+                  </button>
+                </a>
               </div>
-              <p class="w-full text-gray-800 text-base px-6 mb-5">
-                <br>
-                We designed and benchmarked an advanced RAG pipeline to automate parameter extraction from 7,000+ agroforestry papers, accelerating previously manual meta-analysis workflows by integrating Hugging Face Transformers, ChromaDB, and LLMs for efficient retrieval.
-                <br>
-                <div class="project-logo-wrap">
-                  <img src="pictures/Nature Conservancy Logo.webp" class="project-logo" alt="The Nature Conservancy Logo">
-                </div>
-              </p>
-            </a>
-          </div>
-          <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-            <a href = "TNC.html">
-              <div class="flex items-center justify-center">
-              <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                Learn More
-              </button>
             </div>
-            </a>
+          </div>
+          <div class="carousel-card">
+            <div class="bg-white rounded overflow-hidden shadow project-card">
+              <a href="#" class="flex flex-wrap no-underline hover:no-underline">
+                <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
+                  <br>
+                  The Nature Conservancy
+                </div>
+                <p class="w-full text-gray-800 text-base px-6 mb-5">
+                  <br>
+                  We designed and benchmarked an advanced RAG pipeline to automate parameter extraction from 7,000+ agroforestry papers, accelerating previously manual meta-analysis workflows by integrating Hugging Face Transformers, ChromaDB, and LLMs for efficient retrieval.
+                  <br>
+                  <div class="project-logo-wrap">
+                    <img src="pictures/Nature Conservancy Logo.webp" class="project-logo" alt="The Nature Conservancy Logo">
+                  </div>
+                </p>
+              </a>
+              <div class="mt-auto flex items-center justify-center p-6">
+                <a href="TNC.html">
+                  <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                    Learn More
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Set 2 (duplicate, for seamless looping) -->
+          <div class="carousel-card" aria-hidden="true">
+            <div class="bg-white rounded overflow-hidden shadow project-card">
+              <a href="#" tabindex="-1" class="flex flex-wrap no-underline hover:no-underline">
+                <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
+                  <br>
+                  MIT Jameel Clinic & Boston Museum of Science
+                </div>
+                <p class="w-full text-gray-800 text-base px-6 mb-5">
+                  <br>
+                  With MIT students, we're creating a capture-the-flag challenge game for the Boston Museum of Science to encourage museum-goers to learn about clinical AI and drug discovery.
+                  <br>
+                  <div class="project-logo-wrap">
+                      <img src="pictures/MIT_logo.png" class="project-logo" alt="" aria-hidden="true">
+                  </div>
+                </p>
+              </a>
+              <div class="mt-auto flex items-center justify-center p-6">
+                <a href="MITxMOS.html" tabindex="-1">
+                  <button tabindex="-1" class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                    Learn More
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-card" aria-hidden="true">
+            <div class="bg-white rounded overflow-hidden shadow project-card">
+              <a href="#" tabindex="-1" class="flex flex-wrap no-underline hover:no-underline">
+                <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
+                  <br>
+                  United Nation Refugee Agency
+                </div>
+                <p class="w-full text-gray-800 text-base px-6 mb-5">
+                  <br>
+                  Our first project with UNHCR is developing a machine learning tool to help the United Nations analyze geographical data about refugee camps.
+                  <br>
+                  <br>
+                  Our second project is building a web app to help researchers visualize and connect data from two separate datasets.
+                  <br>
+                  <div class="project-logo-wrap">
+                    <img src="pictures/USA_for_UNHCR.png" class="project-logo" alt="" aria-hidden="true">
+                  </div>
+                </p>
+              </a>
+              <div class="mt-auto flex items-center justify-center p-6">
+                <a href="UNHCR.html" tabindex="-1">
+                  <button tabindex="-1" class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                    Learn More
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-card" aria-hidden="true">
+            <div class="bg-white rounded overflow-hidden shadow project-card">
+              <a href="#" tabindex="-1" class="flex flex-wrap no-underline hover:no-underline">
+                <div class="w-full font-bold text-xl text-gray-800 px-6 text-center">
+                  <br>
+                  The Nature Conservancy
+                </div>
+                <p class="w-full text-gray-800 text-base px-6 mb-5">
+                  <br>
+                  We designed and benchmarked an advanced RAG pipeline to automate parameter extraction from 7,000+ agroforestry papers, accelerating previously manual meta-analysis workflows by integrating Hugging Face Transformers, ChromaDB, and LLMs for efficient retrieval.
+                  <br>
+                  <div class="project-logo-wrap">
+                    <img src="pictures/Nature Conservancy Logo.webp" class="project-logo" alt="" aria-hidden="true">
+                  </div>
+                </p>
+              </a>
+              <div class="mt-auto flex items-center justify-center p-6">
+                <a href="TNC.html" tabindex="-1">
+                  <button tabindex="-1" class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                    Learn More
+                  </button>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
